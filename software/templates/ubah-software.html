@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+
+            <h5><i>Ubah Data : </i> {{ soft.judul }}</h5>
+
+
+            {% for message in messages %}
+
+            {% if message %}
+            <div class="alert alert-success">{{ message }}</div>
+            {% endif %}
+
+            {% endfor %}
+
+
+            <form action="{% url 'ubah_software' soft.id %}" method="post">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <button class="btn btn-primary btn-sm" method="submit"><b>Simpan</b></button>
+                <a href="/software" class="btn btn-danger btn-sm btn-dark"><b>Kembali</b></a>
+
+            </form>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="keterangan mt-5">
+
+                    <h5>Keterangan</h5>
+
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><b>Judul : </b> </td>
+                                <td> Merupakan nama software</td>
+
+                            </tr>
+
+                            <tr>
+                                <td><b>Deskripsi : </b> </td>
+                                <td> Merupakan penjelasan software dan fungsinya</td>
+
+                            </tr>
+
+                            <tr>
+                                <td><b>Os : </b> </td>
+                                <td> Merupakan Sistem Operasi yang bisa memakai software tersebut</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+
+            <h5>Tambah Data Software</h5>
+
+            {% if pesan %}
+            <div class="alert alert-success">{{ pesan }}</div>
+            {% endif %}
+
+            <form action="/tambah-software/" method="post">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <button class="btn btn-primary btn-sm" method="submit">Tambah Software</button>
+                <a href="/software" class="btn btn-dark btn-sm">Kembali</a>
+
+            </form>
+
+            <hr>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="keterangan mt-5">
+
+                    <h5>Keterangan</h5>
+
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><b>Judul : </b> </td>
+                                <td> Merupakan nama software</td>
+
+                            </tr>
+
+                            <tr>
+                                <td><b>Deskripsi : </b> </td>
+                                <td> Merupakan penjelasan software dan fungsinya</td>
+
+                            </tr>
+
+                            <tr>
+                                <td><b>Os : </b> </td>
+                                <td> Merupakan Sistem Operasi yang bisa memakai software tersebut</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
